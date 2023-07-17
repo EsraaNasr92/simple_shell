@@ -143,6 +143,42 @@ int _putchar(char);
 char **strtow(char *, char *);
 char **strtow2(char *, char);
 
+/* Builtin_functions.c */
+int _mexit(info_t *);
+int _mcd(info_t *);
+int _mhelp(info_t *);
+int _mhistory(info_t *info);
+
+/* main.c */
+void clear_info(info_t *);
+void set_info(info_t *, char **);
+void free_info(info_t *, int);
+
+/* get_alias.c */
+int unset_alias(info_t *info, char *str);
+int set_alias(info_t *info, char *str);
+int print_alias(list_t *node);
+int _malias(info_t *info);
+
+/* get_env.c */
+char *_mgetenv(info_t *, const char *);
+int _menv(info_t *);
+int _msetenv(info_t *);
+int _munsetenv(info_t *);
+int mpopulate_env_list(info_t *);
+
+/* get_env2.c */
+char **get_environ(info_t *);
+int _munsetenv(info_t *, char *);
+int _msetenv(info_t *, char *, char *);
+
+/* get_history.c */
+char *get_history_file(info_t *info);
+int write_history(info_t *info);
+int read_history(info_t *info);
+int build_history_list(info_t *info, char *buf, int linecount);
+int renumber_history(info_t *info);
+
 /* error_functions.c */
 void _eputs(char *);
 int _eputchar(char);
@@ -173,43 +209,10 @@ int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
-/* builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
-
-/* builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
-
 /* getline.c */
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
-
-/* getinfo.c */
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
-
-/* environ.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
-
-/* getenv.c */
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
-
-/* history.c */
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
-int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
 
 /* lists.c */
 list_t *add_node(list_t **, const char *, int);

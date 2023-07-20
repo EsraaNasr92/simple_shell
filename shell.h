@@ -169,8 +169,8 @@ int mpopulate_env_list(info_t *);
 
 /* get_env2.c */
 char **get_environ(info_t *);
-int _munsetenv(info_t *, char *);
-int _msetenv(info_t *, char *, char *);
+int _myunsetenv(info_t *, char *);
+int _mysetenv(info_t *, char *, char *);
 
 /* get_history.c */
 char *get_history_file(info_t *info);

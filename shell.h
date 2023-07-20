@@ -159,6 +159,7 @@ int unset_alias(info_t *info, char *str);
 int set_alias(info_t *info, char *str);
 int print_alias(list_t *node);
 int _malias(info_t *info);
+int replace_alias(info_t *info);
 
 /* get_env.c */
 char *_mgetenv(info_t *, const char *);
@@ -178,6 +179,12 @@ int write_history(info_t *info);
 int read_history(info_t *info);
 int build_history_list(info_t *info, char *buf, int linecount);
 int renumber_history(info_t *info);
+
+/* set_variables.c */
+int is_chain(info_t *, char *, size_t *);
+void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int replace_vars(info_t *);
+int replace_string(char **, char *);
 
 /* error_functions.c */
 void _eputs(char *);
@@ -227,12 +234,5 @@ char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
 list_t *node_starts_with(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t *);
-
-/* vars.c */
-int is_chain(info_t *, char *, size_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
-int replace_alias(info_t *);
-int replace_vars(info_t *);
-int replace_string(char **, char *);
 
 #endif

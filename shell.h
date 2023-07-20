@@ -110,13 +110,6 @@ typedef struct builtin
 	int (*func)(info_t *);
 } builtin_table;
 
-
-/* hsh.c */
-int hsh(info_t *, char **);
-int find_builtin(info_t *);
-void find_cmd(info_t *);
-void fork_cmd(info_t *);
-
 /* parser.c */
 int is_cmd(info_t *, char *);
 char *dup_chars(char *, int, int);
@@ -148,6 +141,12 @@ int _mexit(info_t *);
 int _mcd(info_t *);
 int _mhelp(info_t *);
 int _mhistory(info_t *info);
+
+/* BuiltIn_functions2.c */
+int hsh(info_t *, char **);
+int find_builtin(info_t *);
+void find_cmd(info_t *);
+void fork_cmd(info_t *);
 
 /* main.c */
 void clear_info(info_t *);

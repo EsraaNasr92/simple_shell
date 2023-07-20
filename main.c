@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 	int fd = 2;
 	asm ("mov %1, %0\n\t"
 	"add $3, %0"
-	: "-r" (fd)
+	: "=r" (fd)
 	: "r" (fd));
 
 	if(argc == 2)
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
 		}
 		info->readfd = fd;
 	}
-	populate_env_list (info);
+	mpopulate_env_list (info);
 	read_history (info);
 	hsh (info, argv);
 	return (EXIT_SUCCESS);

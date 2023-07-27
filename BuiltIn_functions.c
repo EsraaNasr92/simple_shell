@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _myexit - exits the shell
+ * _mexit - exits the shell
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: exits with a given exit status
@@ -30,7 +30,7 @@ int _mexit(info_t *info)
 }
 
 /**
- * _mycd - changes the current directory of the process
+ * _mcd - changes the current directory of the process
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
@@ -80,7 +80,7 @@ int _mcd(info_t *info)
 }
 
 /**
- * _myhelp - changes the current directory of the process
+ * _mhelp - changes the current directory of the process
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
@@ -97,7 +97,7 @@ int _mhelp(info_t *info)
 }
 
 /**
- * _myhistory - displays the history list, one command by line, preceded
+ * _mhistory - displays the history list, one command by line, preceded
  *              with line numbers, starting at 0.
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.

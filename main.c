@@ -74,8 +74,8 @@ void free_info(info_t *info, int all)
 
 /**
  * main - main function
- * argc: no. of arguments
- * argv: command arguments
+ * @argc: no. of arguments
+ * @argv: command arguments
  *
  * Return: 0
  */

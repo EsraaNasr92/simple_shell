@@ -82,9 +82,9 @@ int main(int argc, char **argv)
 	info_t info[] = { INFO_INIT };
 	int fd = 2;
 	asm ("mov %1, %0\n\t"
-	"add $3, %0"
-	: "=r" (fd)
-	: "r" (fd));
+		"add $3, %0"
+		: "=r" (fd)
+		: "r" (fd));
 
 	if (argc == 2)
 	{
@@ -106,14 +106,8 @@ int main(int argc, char **argv)
 		}
 		info->readfd = fd;
 	}
-<<<<<<< HEAD
 	mpopulate_env_list(info);
 	read_history(info);
 	hsh(info, argv);
-=======
-	mpopulate_env_list (info);
-	read_history (info);
-	hsh (info, argv);
->>>>>>> 0266292add81572c06c74ebf5d4089f245a09fc9
 	return (EXIT_SUCCESS);
 }

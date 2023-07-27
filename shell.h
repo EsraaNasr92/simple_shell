@@ -110,13 +110,6 @@ typedef struct builtin
 	int (*func)(info_t *);
 } builtin_table;
 
-
-/* hsh.c */
-int hsh(info_t *, char **);
-int find_builtin(info_t *);
-void find_cmd(info_t *);
-void fork_cmd(info_t *);
-
 /* parser.c */
 int is_cmd(info_t *, char *);
 char *dup_chars(char *, int, int);
@@ -131,7 +124,7 @@ char *_strcat(char *, char *);
 /* string_f2.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
-char *_strchr(char *, char); 
+char *_strchr(char *, char);
 
 /* string_f3.c */
 char *_strcpy(char *, char *);
@@ -149,6 +142,12 @@ int _mcd(info_t *);
 int _mhelp(info_t *);
 int _mhistory(info_t *info);
 
+/* BuiltIn_functions2.c */
+int hsh(info_t *, char **);
+int find_builtin(info_t *);
+void find_cmd(info_t *);
+void fork_cmd(info_t *);
+
 /* main.c */
 void clear_info(info_t *);
 void set_info(info_t *, char **);
@@ -159,6 +158,7 @@ int unset_alias(info_t *info, char *str);
 int set_alias(info_t *info, char *str);
 int print_alias(list_t *node);
 int _malias(info_t *info);
+int replace_alias(info_t *info);
 
 /* get_env.c */
 char *_mgetenv(info_t *, const char *);
@@ -169,8 +169,8 @@ int mpopulate_env_list(info_t *);
 
 /* get_env2.c */
 char **get_environ(info_t *);
-int _munsetenv(info_t *, char *);
-int _msetenv(info_t *, char *, char *);
+int _myunsetenv(info_t *, char *);
+int _mysetenv(info_t *, char *, char *);
 
 /* get_history.c */
 char *get_history_file(info_t *info);
@@ -178,6 +178,12 @@ int write_history(info_t *info);
 int read_history(info_t *info);
 int build_history_list(info_t *info, char *buf, int linecount);
 int renumber_history(info_t *info);
+
+/* set_variables.c */
+int is_chain(info_t *, char *, size_t *);
+void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int replace_vars(info_t *);
+int replace_string(char **, char *);
 
 /* error_functions.c */
 void _eputs(char *);
@@ -191,7 +197,7 @@ void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 /* memory_f1.c */
-int bfree(void **); 
+int bfree(void **);
 
 /* loophsh.c */
 int loophsh(char **);
@@ -209,7 +215,7 @@ int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
-/* getline.c */
+/* get_line.c */
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
@@ -227,12 +233,5 @@ char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
 list_t *node_starts_with(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t *);
-
-/* vars.c */
-int is_chain(info_t *, char *, size_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
-int replace_alias(info_t *);
-int replace_vars(info_t *);
-int replace_string(char **, char *);
 
 #endif

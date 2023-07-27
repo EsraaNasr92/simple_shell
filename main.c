@@ -106,8 +106,14 @@ int main(int argc, char **argv)
 		}
 		info->readfd = fd;
 	}
+<<<<<<< HEAD
 	mpopulate_env_list(info);
 	read_history(info);
 	hsh(info, argv);
+=======
+	mpopulate_env_list (info);
+	read_history (info);
+	hsh (info, argv);
+>>>>>>> 0266292add81572c06c74ebf5d4089f245a09fc9
 	return (EXIT_SUCCESS);
 }

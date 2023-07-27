@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * clear_info - initialize info_t 
+ * clear_info - initialize info_t
  * @info: structure address
 */
-void clear_info (info_t *info)
+void clear_info(info_t *info)
 {
 	info->arg = NULL;
 	info->argc = 0;
@@ -83,10 +83,10 @@ int main(int argc, char **argv)
 	int fd = 2;
 	asm ("mov %1, %0\n\t"
 	"add $3, %0"
-	: "-r" (fd)
+	: "=r" (fd)
 	: "r" (fd));
 
-	if(argc == 2)
+	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
 		if (fd == -1)
@@ -106,8 +106,8 @@ int main(int argc, char **argv)
 		}
 		info->readfd = fd;
 	}
-	populate_env_list (info);
-	read_history (info);
-	hsh (info, argv);
+	mpopulate_env_list(info);
+	read_history(info);
+	hsh(info, argv);
 	return (EXIT_SUCCESS);
 }

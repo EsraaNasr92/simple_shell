@@ -92,7 +92,7 @@ int _mhelp(info_t *info)
 	arg_array = info->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
-		_puts(*arg_array); 
+		_puts(*arg_array);
 	return (0);
 }
 

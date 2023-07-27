@@ -91,3 +91,4 @@ int _msetenv(info_t *info, char *var, char *value)
 	info->env_changed = 1;
 	return (0);
 }
+
